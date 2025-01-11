@@ -1,0 +1,19 @@
+^: This symbol signifies the start of the string. It ensures that the pattern matches from the beginning of the string.
+
+(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?): This is a non-capturing group (?: ... ) that represents the different possibilities for the numbers
+in the IP address.
+
+25[0-5]: This matches numbers from 250 to 255. It starts with 25 followed by any digit from 0 to 5.
+
+2[0-4][0-9]: This matches numbers from 200 to 249. It starts with 2 followed by a digit from 0 to 4, and then any digit.
+
+[01]?[0-9][0-9]?: This matches numbers from 0 to 199. It can have zero or one occurrence of either 0 or 1, followed by any digit (0-9),
+and optionally followed by one more digit.
+
+\.: This is an escaped period (.), which matches the literal period character.
+It ensures that the pattern is followed by a period in the IP address string.
+
+To summarize, this part of the regular expression ^(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.
+matches the first part of the IP address, which represents a number between 0 and 255, followed by a period.
+It allows for three digits (0-9) or two digits (00-99) or a single digit (0-9).
+The ^ asserts that the pattern starts at the beginning of the string, and \. ensures there is a period immediately after the number.
